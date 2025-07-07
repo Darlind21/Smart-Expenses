@@ -1,0 +1,32 @@
+﻿@using MVC_Project._DataLayer.Models  
+@{  
+    ViewData["Title"] = "Create/Update";  
+}  
+
+@model Category  
+
+<div class="text-center">  
+    <h2>Create or update category</h2>  
+</div>  
+
+<form asp-controller="Category" asp-action="UpsertForm" UpsertForm method="post">  
+    <label hidden></label>  
+    <input hidden type="number" class="form-control mb-3" asp-for="Id" />
+
+    <label>Category Name</label>  
+    <input required type="text" class="form-control mb-3" asp-for="Name" />
+
+    <label>Description</label>   
+    <input type="text" class="form-control mb-3" asp-for="Description" />
+
+    <label>Category Type</label>  
+    <select required class="form-control mb-3"  
+        asp-for="Type" asp-items="Html.GetEnumSelectList<MVC_Project._DataLayer.Models.Type>()">  
+        <option selected ="selected" value="">Please select an option</option>
+    </select>  
+    <label>Is Active?</label>
+    <input type="checkbox" asp-for="IsActive"/>
+    <br />
+
+    <input class="btn btn-primary mb-2 mt-4" type="submit" value="Save" />  
+</form>

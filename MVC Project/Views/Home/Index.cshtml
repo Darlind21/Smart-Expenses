@@ -1,0 +1,52 @@
+﻿@using MVC_Project.ViewModels.Home
+@{
+    ViewData["Title"] = "Balance";
+}
+
+@model HomeIndexVM
+
+<div class="text-center">
+    <h3 class="display-4 mb-5 mt-5">Smart Expenses</h3>
+    <br>
+    <div class="row">
+        <div class="col-8 mx-auto">
+            <table class="table ">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>
+                            <h4>Balance</h4>
+                        </th>
+                        <th>
+                            <h4><span>ALL @(Model.IncomesTotal - Model.ExpensesTotal)</span></h4>
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>
+                        Expenses
+                    </td>
+                    <td>
+                        <span>ALL @Model.ExpensesTotal</span>
+                    </td>
+                    <td>
+                        <a asp-controller="Expense" asp-action="Overview" class="btn btn-outline-primary"><i class="fa fa-th-list"></i> View </a>
+                        <a asp-controller="Expense" asp-action="Upsert" class="btn btn-outline-success"><i class="fa fa-plus"></i> Add </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Incomings
+                    </td>
+                    <td>
+                        <span>ALL @Model.IncomesTotal</span>
+                    </td>
+                    <td>
+                        <a asp-controller="Income" asp-action="Overview" class="btn btn-outline-primary"><i class="fa fa-th-list"></i> View </a>
+                        <a asp-controller="Income" asp-action="Upsert" class="btn btn-outline-success"><i class="fa fa-plus"></i> Add </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
